@@ -48,9 +48,13 @@ php artisan serve
 <p align="center">
     <img src="public/img/login.jpg">
     <hr style="height:1px">
-    <img src="public/img/add-letter.jpg">
+    <img src="public/img/add.jpg">
     <hr style="height:1px">
     <img src="public/img/browse.jpg">
+    <hr style="height:1px">
+    <img src="public/img/account.jpg">
+    <hr style="height:1px">
+    <img src="public/img/password.jpg">
 </p>
 
 ## Live demo
