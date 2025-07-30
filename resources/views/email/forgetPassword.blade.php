@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<body>
+    <h1>Forget Password Email</h1>
+    You can reset password from bellow link:
+    <br>
+    <a href="{{ url('reset-password', [$token]) }}">Reset Password</a>
+</body>
+</html>
