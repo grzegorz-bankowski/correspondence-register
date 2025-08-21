@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\IncomingLetterController;
 use App\Http\Controllers\OutgoingLetterController;
 use App\Http\Controllers\ForgetPasswordController;
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +33,6 @@ Route::get('forget', [ForgetPasswordController::class, 'forgetPasswordForm']);
 Route::post('forget', [ForgetPasswordController::class, 'submitForgetPasswordForm']);
 Route::get('reset-password/{token}', [ForgetPasswordController::class, 'showResetPasswordForm']);
 Route::post('reset-password', [ForgetPasswordController::class, 'submitResetPasswordForm']);
+Route::get('user/add', [AdminController::class, 'add']);
+Route::post('user/store', [AdminController::class, 'store']);
 });
