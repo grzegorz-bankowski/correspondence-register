@@ -8,6 +8,7 @@ use App\Http\Requests\AddOutgoingLetterRequest;
 use App\Http\Requests\StoreOutgoingLetterRequest;
 use App\Models\OutgoingLetter;
 use App\Http\Requests\BrowseOutgoingLettersRequest;
+use App\Http\Requests\EditOutgoingLetterRequest;
 
 class OutgoingLetterController extends Controller
 {
@@ -28,5 +29,11 @@ class OutgoingLetterController extends Controller
     {
         $letters = OutgoingLetter::paginate(5);
         return view('outgoing/browse', compact('letters'));
+    }
+
+    public function edit($id, EditOutgoingLetterRequest $request)
+    {
+        $letter = OutgoingLetter::findOrFail($id);
+        return view('outgoing/edit', compact('letter'));
     }
 }
