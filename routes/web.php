@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IncomingLetterController;
+use App\Http\Controllers\OutgoingLetterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,6 @@ Route::post('account/store', [UserController::class, 'store']);
 Route::get('incoming/add', [IncomingLetterController::class, 'add']);
 Route::post('incoming/store', [IncomingLetterController::class, 'store']);
 Route::get('incoming/browse', [IncomingLetterController::class, 'browse']);
+Route::get('outgoing/add', [OutgoingLetterController::class, 'add']);
+Route::post('outgoing/store', [OutgoingLetterController::class, 'store']);
 });
