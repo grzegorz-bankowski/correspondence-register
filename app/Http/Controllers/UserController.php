@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\StoreUserByGuestAction;
+use App\Http\Requests\StoreUserByGuestRequest;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -30,6 +33,19 @@ class UserController extends Controller
                 'email' => $request['email'],
             ]);
         }
+    }
+
+    public function create()
+    {
+        return view('account.create');
+    }
+
+    public function store(StoreUserByGuestRequest $request, StoreUserByGuestAction $createUserByGuestAction): RedirectResponse
+    {
+        $createUserByGuestAction->run($request);
+        return redirect()->intended('incoming/add')->with(
+            'message', 'The user account has been created!'
+        );
     }
 
     public function logout()
