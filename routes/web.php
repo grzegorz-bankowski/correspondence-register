@@ -28,4 +28,5 @@ Route::get('outgoing/add', [OutgoingLetterController::class, 'add']);
 Route::post('outgoing/store', [OutgoingLetterController::class, 'store']);
 Route::get('outgoing/browse', [OutgoingLetterController::class, 'browse']);
 Route::get('forget', [ForgetPasswordController::class, 'forgetPasswordForm']);
+Route::post('forget', [ForgetPasswordController::class, 'submitForgetPasswordForm']);
 });
