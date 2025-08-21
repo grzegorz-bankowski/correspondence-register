@@ -11,7 +11,8 @@ use App\Models\IncomingLetter;
 use App\Http\Requests\EditIncomingLetterRequest;
 use App\Http\Requests\UpdateIncomingLetterRequest;
 use App\Actions\UpdateIncomingLetterAction;
-
+use App\Http\Requests\DeleteIncomingLetterRequest;
+use App\Actions\DeleteIncomingLetterAction;
 
 class IncomingLetterController extends Controller
 {
@@ -45,6 +46,14 @@ class IncomingLetterController extends Controller
         $updateIncomingLetterAction->run($request);
         return redirect()->intended('/incoming/browse')->with([
             'message' => 'The letter has been updated!'
+        ]);
+    }
+
+    public function delete (DeleteIncomingLetterRequest $request, DeleteIncomingLetterAction $deleteIncomingLetterAction): RedirectResponse
+    {
+        $deleteIncomingLetterAction->run($request);
+        return redirect()->intended('incoming/browse')->with([
+            'message' => 'The letter has been deleted!'
         ]);
     }
 }
