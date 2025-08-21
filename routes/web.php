@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IncomingLetterController;
 use App\Http\Controllers\OutgoingLetterController;
+use App\Http\Controllers\ForgetPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,4 +27,5 @@ Route::get('incoming/browse', [IncomingLetterController::class, 'browse']);
 Route::get('outgoing/add', [OutgoingLetterController::class, 'add']);
 Route::post('outgoing/store', [OutgoingLetterController::class, 'store']);
 Route::get('outgoing/browse', [OutgoingLetterController::class, 'browse']);
+Route::get('forget', [ForgetPasswordController::class, 'forgetPasswordForm']);
 });
