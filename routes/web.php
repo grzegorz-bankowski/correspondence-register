@@ -35,4 +35,5 @@ Route::get('reset-password/{token}', [ForgetPasswordController::class, 'showRese
 Route::post('reset-password', [ForgetPasswordController::class, 'submitResetPasswordForm']);
 Route::get('user/add', [AdminController::class, 'add']);
 Route::post('user/store', [AdminController::class, 'store']);
+Route::get('incoming/edit/{id}', [IncomingLetterController::class, 'edit']);
 });
