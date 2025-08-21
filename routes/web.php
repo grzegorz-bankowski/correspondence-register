@@ -21,4 +21,5 @@ Route::get('account', [UserController::class, 'create']);
 Route::post('account/store', [UserController::class, 'store']);
 Route::get('incoming/add', [IncomingLetterController::class, 'add']);
 Route::post('incoming/store', [IncomingLetterController::class, 'store']);
+Route::get('incoming/browse', [IncomingLetterController::class, 'browse']);
 });

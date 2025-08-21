@@ -6,6 +6,7 @@ use App\Actions\StoreIncomingLetterAction;
 use App\Http\Requests\StoreIncomingLetterRequest;
 use App\Http\Requests\AddIncomingLetterRequest;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\BrowseIncomingLettersRequest;
 
 class IncomingLetterController extends Controller
 {
@@ -20,5 +21,11 @@ class IncomingLetterController extends Controller
         return redirect()->intended('incoming/add')->with([
             'message', 'The letter has been added!'
         ]);
+    }
+
+    public function browse(BrowseIncomingLettersRequest $request)
+    {
+        $letters = IncomingLetter::paginate(5);
+        return view('incoming/browse', compact('letters'));
     }
 }
