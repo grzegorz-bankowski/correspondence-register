@@ -9,6 +9,9 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\BrowseIncomingLettersRequest;
 use App\Models\IncomingLetter;
 use App\Http\Requests\EditIncomingLetterRequest;
+use App\Http\Requests\UpdateIncomingLetterRequest;
+use App\Actions\UpdateIncomingLetterAction;
+
 
 class IncomingLetterController extends Controller
 {
@@ -35,5 +38,13 @@ class IncomingLetterController extends Controller
     {
         $letter = IncomingLetter::findOrFail($id);
         return view('incoming/edit', compact('letter'));
+    }
+
+    public function update(UpdateIncomingLetterRequest $request, UpdateIncomingLetterAction $updateIncomingLetterAction) : RedirectResponse
+    {
+        $updateIncomingLetterAction->run($request);
+        return redirect()->intended('/incoming/browse')->with([
+            'message' => 'The letter has been updated!'
+        ]);
     }
 }
