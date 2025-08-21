@@ -11,6 +11,8 @@ use App\Http\Requests\BrowseOutgoingLettersRequest;
 use App\Http\Requests\EditOutgoingLetterRequest;
 use App\Actions\UpdateOutgoingLetterAction;
 use App\Http\Requests\UpdateOutgoingLetterRequest;
+use App\Actions\DeleteOutgoingLetterAction;
+use App\Http\Requests\DeleteOutgoingLetterRequest;
 
 class OutgoingLetterController extends Controller
 {
@@ -44,6 +46,14 @@ class OutgoingLetterController extends Controller
         $updateOutgoingLetterAction->run($request);
         return redirect()->intended('/outgoing/browse')->with([
             'message' => 'The letter has been updated!'
+        ]);
+    }
+
+    public function delete(DeleteOutgoingLetterRequest $request, DeleteOutgoingLetterAction $deleteOutgoingLetterAction): RedirectResponse
+    {
+        $deleteOutgoingLetterAction->run($request);
+        return redirect()->intended('outgoing/browse')->with([
+            'message' => 'The letter has been deleted!'
         ]);
     }
 }

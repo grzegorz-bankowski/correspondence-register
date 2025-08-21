@@ -40,4 +40,5 @@ Route::put('incoming/update/{id}', [IncomingLetterController::class, 'update']);
 Route::delete('incoming/delete/{id}', [IncomingLetterController::class, 'delete']);
 Route::get('outgoing/edit/{id}', [OutgoingLetterController::class, 'edit']);
 Route::put('outgoing/update/{id}', [OutgoingLetterController::class, 'update']);
+Route::delete('outgoing/delete/{id}', [OutgoingLetterController::class, 'delete']);
 });
