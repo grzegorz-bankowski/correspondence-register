@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\IncomingLetterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +19,6 @@ Route::post('login', [UserController::class, 'login']);
 Route::get('logout', [UserController::class, 'logout']);
 Route::get('account', [UserController::class, 'create']);
 Route::post('account/store', [UserController::class, 'store']);
+Route::get('incoming/add', [IncomingLetterController::class, 'add']);
+Route::post('incoming/store', [IncomingLetterController::class, 'store']);
 });
